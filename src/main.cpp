@@ -148,6 +148,7 @@ void setup() {
         // 2. Setup mDNS and OTA
         String hostname = "esp32cam-" + String(WiFi.macAddress());
         hostname.replace(":", ""); // remove colons for clean name
+        hostname.toLowerCase();
         if (MDNS.begin(hostname.c_str())) {
             Serial.printf("mDNS responder started: %s.local\n", hostname.c_str());
         }
